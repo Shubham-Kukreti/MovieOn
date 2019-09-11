@@ -2,6 +2,14 @@ const express  = require('express');
 const app = express();
 const path=require('path');
 app.use(express.static(path.join(__dirname,"../build")));
+app.use((req,res,next)=>{
+     if(req.protocol=='https'){
+          next();
+     }else{
+          res.redirect(`https://${req.hostname}`);
+     }
+});
+
 const server  = require('http').createServer(app);
 const socketIO=require('socket.io');
 let bodyParser = require('body-parser');
