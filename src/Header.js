@@ -10,7 +10,7 @@ class Header extends Component {
    
     if(localStorage.getItem('token')!=undefined)
     {
-    axios.post('http://localhost:8080/http://localhost:6000/verifyToken',{'token':localStorage.getItem('token')})
+    axios.post('/verifyToken',{'token':localStorage.getItem('token')})
       .then((result)=>{
         if(result.data.status=='valid'){
         

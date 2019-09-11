@@ -19,7 +19,7 @@ class ForgotPass extends Component {
       }
      
       else{
-        axios.post('http://localhost:8080/http://localhost:6000/forgot',{'uname':uName,'passwordS':pass})
+        axios.post('/forgot',{'uname':uName,'passwordS':pass})
         .then((res)=>{
           if(res.data.status=='notRegistered'){
             alert('You are not Registered! \n Please SignUp First')

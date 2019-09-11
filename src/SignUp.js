@@ -19,7 +19,7 @@ constructor(){
         alert("Confirm Password Should be Same as Password")
     }
     else{
-        axios.post('http://localhost:8080/http://localhost:6000/signup',{'firstN':fName,'lastN':lName,'email':mailE,'uname':uName,'passwordS':pass,'CpasswordS':cpassW})
+        axios.post('/signup',{'firstN':fName,'lastN':lName,'email':mailE,'uname':uName,'passwordS':pass,'CpasswordS':cpassW})
         .then((res)=>{
             if(res.data.value=="EmailAlready"){
                 alert("You email is already registered!")

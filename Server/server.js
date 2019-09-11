@@ -1,7 +1,5 @@
 const express  = require('express');
 const app = express();
-const path=require('path')
-app.use(express.static(path.join(__dirname,"../build")));
 const server  = require('http').createServer(app);
 const socketIO=require('socket.io');
 let bodyParser = require('body-parser');
@@ -14,9 +12,6 @@ var io=socketIO(server);
 
 var mdkey="mongodb+srv://shubham2:shubham98@cluster0-jlphs.mongodb.net/test?retryWrites=true&w=majority";
 
-app.get("/",(req,res,next)=>{
-     res.sendFile(path.join(__dirname,"../build","index.html"));
-})
 
 //mongo connectivity
 var mongoUrl= "mongodb://localhost:27017/"
@@ -379,10 +374,6 @@ app.post('/sendList',(req,res)=>{
     
 })
 
-app.use((req,res)=>{
-     res.send("404,not found");
-})
-
 // app.post('/sendList',(req,res)=>{
 //      res.send({'Name': movies}) 
 // })
@@ -396,7 +387,7 @@ app.use((req,res)=>{
    
 
 
-server.listen(process.env.Port || 6000,(req,res)=>{
+server.listen(6000,(req,res)=>{
     console.log("server is listening to port number 6000")
   })
   

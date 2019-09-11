@@ -15,7 +15,7 @@ class Middle extends Component {
           localStorage.setItem('movieName',r.target.textContent)
           document.getElementById("images").style.display="block"
           document.getElementById('images').innerHTML=`<img src="${require('./Images/loading.gif')}"/>`
-          axios.post('http://localhost:8080/http://localhost:6000/sendData',{'mName':movieName})
+          axios.post('/sendData',{'mName':movieName})
             .then((res)=>{
             document.getElementById("images").innerHTML=""
             document.getElementById("images").insertAdjacentHTML('beforeend',`

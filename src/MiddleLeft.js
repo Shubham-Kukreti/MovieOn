@@ -8,7 +8,7 @@ class MiddleLeft extends Component {
 
     this.list=()=>{
       document.getElementById('movieList').innerHTML=`<img src="${require('./Images/loading2.gif')}"/>`
-      axios.post('http://localhost:8080/http://localhost:6000/sendList')
+      axios.post('/sendList')
         .then((result)=>{
           //console.log(result)
           document.getElementById('movieList').innerHTML="";

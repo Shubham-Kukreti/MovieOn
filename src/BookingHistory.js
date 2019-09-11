@@ -13,7 +13,7 @@ class BookingHistory extends Component {
         // .catch()
 
         document.getElementById('historyContent').innerHTML=`<img src="${require('./Images/loading2.gif')}"/>`
-        axios.post('http://localhost:8080/http://localhost:6000/bookingHistory',{uname:localStorage.getItem('userName')})
+        axios.post('/bookingHistory',{uname:localStorage.getItem('userName')})
         .then((res)=>{
             document.getElementById('historyContent').innerHTML=""
             if(res.data.status=="none"){

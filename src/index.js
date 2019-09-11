@@ -139,7 +139,7 @@ document.addEventListener("click",(e)=>{
         var v = window.confirm("Are You Sure? \n *Deleted Account Cannot Be Retrieved!*");
 
         if(v==true){
-        axios.post('http://localhost:8080/http://localhost:6000/delete',{'DUser':localStorage.getItem('userName')})
+        axios.post('/delete',{'DUser':localStorage.getItem('userName')})
         .then((res)=>{
             if(res.data.status=="deleted"){
                 localStorage.removeItem('token')
@@ -236,7 +236,7 @@ document.addEventListener("click",(e)=>{
         // })
         // .catch()
 
-        axios.post('http://localhost:8080/http://localhost:6000/checkSeat',{'seat':t,'sTime':x,'mName':localStorage.getItem('movieName')})
+        axios.post('/checkSeat',{'seat':t,'sTime':x,'mName':localStorage.getItem('movieName')})
         .then((res)=>{
             if(res.data.status=="notAvailable")
                 alert("Selected Seat is already Booked!\n Please select another seat.")
@@ -259,7 +259,7 @@ document.addEventListener("click",(e)=>{
         var p=Math.random()*100;
         var pc=parseInt(p*6);
         //var v=0;
-        axios.post('http://localhost:8080/http://localhost:6000/booked',{'UserName':localStorage.getItem('userName'),'mName':localStorage.getItem('movieName'),'sTime':x,'Seat':t,'amount':pc,'btime':tDate})
+        axios.post('/booked',{'UserName':localStorage.getItem('userName'),'mName':localStorage.getItem('movieName'),'sTime':x,'Seat':t,'amount':pc,'btime':tDate})
         .then((result)=>{
             if(result.data.status=="already"){
                 alert("Sorry! Selected Seat is already Booked.\n Please choose another one.")
@@ -356,7 +356,7 @@ document.addEventListener("click",(e)=>{
         {   document.getElementById("tMovies").innerHTML="<< Latest Movies";
             document.getElementById("movieList").innerHTML=`<img src="${require('./Images/loading2.gif')}"/>`;
             
-            axios.post('http://localhost:8080/http://localhost:6000/sendList')
+            axios.post('/sendList')
             .then((result)=>{
                 document.getElementById('movieList').innerHTML="";
             for(var i=0;;i++){
@@ -377,7 +377,7 @@ document.addEventListener("click",(e)=>{
         else if(k==1){
             document.getElementById("tMovies").innerHTML="Trending Searches >>";
             document.getElementById("movieList").innerHTML=`<img src="${require('./Images/loading2.gif')}"/>`
-            axios.post('http://localhost:8080/http://localhost:6000/sendList')
+            axios.post('/sendList')
             .then((result)=>{
                 document.getElementById("movieList").innerHTML="";
             for(var i=0;;i++){

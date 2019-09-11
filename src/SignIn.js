@@ -6,7 +6,7 @@ constructor(){
 this.signin=()=>{
     var uname=document.getElementById("uName").value;
     var upass=document.getElementById("uPass").value;
-    axios.post('http://localhost:8080/http://localhost:6000/signIn',{'userName':uname,'userPassword':upass})
+    axios.post('/signIn',{'userName':uname,'userPassword':upass})
     .then((result)=>{
      if(result.data.token=='invalid'){
        alert("You have to SignUp First")
