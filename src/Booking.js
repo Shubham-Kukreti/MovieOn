@@ -1,9 +1,9 @@
 import React,{Component} from 'react';
 import './App.css';
-import axios from 'axios'
+import axios from 'axios';
 class Booking extends Component {
  constructor(){
-    super()
+    super();
 //     this.book=()=>{
 //         var num=document.getElementById("nTicket").value;
 //         if(num>4){

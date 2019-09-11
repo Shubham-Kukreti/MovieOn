@@ -1,6 +1,6 @@
 const express  = require('express');
 const app = express();
-const path=require('path')
+const path=require('path');
 app.use(express.static(path.join(__dirname,"../build")));
 const server  = require('http').createServer(app);
 const socketIO=require('socket.io');
@@ -396,8 +396,8 @@ app.use((req,res)=>{
    
 
 
-server.listen(process.env.Port || 6000,(req,res)=>{
-    console.log("server is listening to port number 6000")
+server.listen(process.env.PORT || 6000,(req,res)=>{
+    console.log("server is listening")
   })
   
   //mongodb+srv://shubham:<password>@cluster0-jlphs.mongodb.net/test?retryWrites=true&w=majority
