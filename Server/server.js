@@ -11,7 +11,6 @@ app.use((req,res,next)=>{
 const path=require('path');
 app.use(express.static(path.join(__dirname,"../build")));
 const server  = require('http').createServer(app);
-const socketIO=require('socket.io');
 let bodyParser = require('body-parser');
 let crypto = require('crypto-js');
 let mongoClient=require('mongodb').MongoClient;

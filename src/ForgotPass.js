@@ -58,7 +58,7 @@ class ForgotPass extends Component {
                 <td><input type="password" id="CpassW"></input></td>
             </tr>
         </table>
-        <button type="button" onClick={this.pass}>Enter</button>
+        <button type="button" className="btn btn-primary" onClick={this.pass}>Enter</button>
         </center>
 
       </div>
