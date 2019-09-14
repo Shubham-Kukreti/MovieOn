@@ -182,7 +182,7 @@ document.addEventListener("click",(e)=>{
             document.getElementById("transparentBack").style.display="block";
             document.getElementById("Booking").style.display="block";
             if(window.outerWidth>450)            
-            setTimeout(()=>{document.getElementById("Booking").style.height="65vh"},200);
+            setTimeout(()=>{document.getElementById("Booking").style.height="70vh"},200);
             else
             setTimeout(()=>{document.getElementById("Booking").style.height="80vh"},200);
             setTimeout(()=>{ReactDOM.render(<Booking />, document.getElementById("Booking"))},1000);
@@ -400,7 +400,7 @@ document.addEventListener("click",(e)=>{
         
         var x=document.getElementById("headerSearchBar").value;
 
-        axios.post('http://localhost:8080/http://localhost:6000/search',{'mName':x})
+        axios.post('/search',{'mName':x})
         .then((result)=>{
     
             if(result.data.status=="notFound")
