@@ -15,8 +15,6 @@ let bodyParser = require('body-parser');
 let crypto = require('crypto-js');
 let mongoClient=require('mongodb').MongoClient;
 
-var io=socketIO(server);
-
 //var movies=[['Chhichhore','latest'],['IT: Chapter Two','latest'],['Mission Mangal','latest'],['Batla House','latest'],['Saaho','latest'],['Kabir Singh',""],['Once Upon A Time In Hollywood','latest'],['Fast & Furious: Hobbs & Shaw',''],['The Angry Birds Movie 2','latest']]
 
 var mdkey="mongodb+srv://shubham2:shubham98@cluster0-jlphs.mongodb.net/test?retryWrites=true&w=majority";
@@ -179,6 +177,37 @@ app.post('/sendData',(req,res)=>{
      
 
 })
+
+app.post('/search',(req,res1)=>{
+     var y=0;
+     mongoClient.connect(mdkey,(err,db)=>{
+          if(err) throw err;
+          var dbo=db.db('movieOn');
+          dbo.collection('MovieName').findOne({},(err,result)=>{
+          if(err) throw err;
+           
+          for(var i=0;i<result.mName.length;i++)
+          {
+             if(result.mName[i][0]==req.body.mName)
+              { 
+                 y=1;
+              }
+
+          }
+          
+          if(y==1)
+          res1.send({'status':'found'})
+          else{                
+          res1.send({'status':'notFound'})
+          }
+               
+          
+                 
+          })
+
+     })
+})
+
 
 app.post('/booked',(req,res)=>{
      var d=new Date().getDate();
