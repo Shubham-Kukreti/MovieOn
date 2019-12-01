@@ -297,7 +297,7 @@ app.post('/signIn',(req,res)=>{
               else{
                   var token=new Date().getDate()+myKey;
                   var token2=crypto.SHA256(token).toString();
-                   res.send({'token':token2});
+                   res.send({'token':token2,'Name':result.FirstName});
         
    }
         })
